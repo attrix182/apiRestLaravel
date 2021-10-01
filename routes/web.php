@@ -13,17 +13,12 @@
 |
 */
 
-$router->get('/v', function () use ($router) {
+$router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/', function () use ($router) {
-    
-    $user = new stdclass();
-    $user->name = 'John';
-    $user->lastname = 'Doe';
 
-     
 
-    return json_encode($user);
-});
+$router->get('/items', 'ItemController@listAll');
+
+$router->post('/items', 'ItemController@createItem');
