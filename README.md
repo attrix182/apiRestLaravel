@@ -1,2 +1,2 @@
-# apiRestLaravel
-API REST PHP Laravel
+# apiRestLumen
+API REST PHP Lumen
