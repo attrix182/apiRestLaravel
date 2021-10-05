@@ -29,28 +29,49 @@ class ItemController extends Controller
 
         $item->name = $data->name;
         $item->description = $data->description;
-        $item->img = $data->img;
+        
+        if($data->hasFile('img'))
+        {
+            $nameImg = $data->file('img')->getClientOriginalName();
+            $newNameImg = $item->id . '_' . $nameImg;
+            $folder = './upload';
+            $data->file('img')->move($folder, $newNameImg);
+        }
+
+        $item->img = $newNameImg;
+
         $item->save();
 
-        $item->status = "Created";
-        return response()->json($item->status, 200);
+
+        return response()->json($item, 200);
     }
 
 
-    public function updateItem(Request $data){
+    public function updateItem(Request $data, $id){
         
-        $item = Item::find($data->id);
+        $item = Item::find($id);
         $item->name = $data->name;
         $item->description = $data->description;
-        $item->img = $data->img;
+
+        if($data->hasFile('img'))
+        {
+            $nameImg = $data->file('img')->getClientOriginalName();
+            $newNameImg = $item->id . '_' . $nameImg;
+            $folder = './upload';
+            $data->file('img')->move($folder, $newNameImg);
+        }
+
+        $item->img = $newNameImg;
+
         $item->save();
 
-        return response()->json($item);
+        return response()->json(   $item);
     }
 
     public function deleteItem($id){
         $item = Item::find($id);
         $item->delete();
-        return response()->json($item);
+        $item->status = "Deleted";
+        return response()->json($item->status);
     }
 }
