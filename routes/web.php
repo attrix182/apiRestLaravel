@@ -22,3 +22,5 @@ $router->get('/', function () use ($router) {
 $router->get('/items', 'ItemController@listAll');
 
 $router->post('/items', 'ItemController@createItem');
+
+$router->put('/items', 'ItemController@updateItem');

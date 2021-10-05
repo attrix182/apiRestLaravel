@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-use illuminate\Http\Request;
+use Illuminate\Http\Request;
+
 use App\Models\Item;
 
 class ItemController extends Controller
@@ -24,18 +25,24 @@ class ItemController extends Controller
     }
 
     public function createItem(Request $data){
-    
-        return response()->json($data);
+        $item = new Item;
+
+        $item->name = $data->name;
+        $item->description = $data->description;
+        $item->img = $data->img;
+        $item->save();
+
+        $item->status = "Created";
+        return response()->json($item->status, 200);
     }
 
 
-
-
-    public function updateItem(Request $data, $id){
+    public function updateItem(Request $data){
         
-        $item = Item::find($id);
+        $item = Item::find($data->id);
         $item->name = $data->name;
         $item->description = $data->description;
+        $item->img = $data->img;
         $item->save();
 
         return response()->json($item);
