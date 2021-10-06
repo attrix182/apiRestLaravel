@@ -1,0 +1,183 @@
+{
+	"variables": [],
+	"info": {
+		"name": "apiRestLUMEN",
+		"_postman_id": "c5000204-c580-ee62-0b58-4f152ac19300",
+		"description": "Rutas para la api rest desarrollada con el Microframework de Laravel, Lumen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ITEMS",
+			"request": {
+				"url": "http://localhost/apiRestLumen/public/items",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ADD ITEM",
+			"request": {
+				"url": {
+					"raw": "http://localhost/apiRestLumen/public/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"apiRestLumen",
+						"public",
+						"items"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Samsung",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "s8",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "img",
+							"value": "s8.jpg",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "enctype",
+						"value": "multipart/form-data",
+						"description": ""
+					},
+					{
+						"key": "contentType",
+						"value": "false",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "HyoerX",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Fps",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "MOD ITEM",
+			"request": {
+				"url": "http://localhost/apiRestLumen/public/items/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "enctype",
+						"value": "multipart/form-data",
+						"description": ""
+					},
+					{
+						"key": "contentType",
+						"value": "false",
+						"description": ""
+					},
+					{
+						"key": "",
+						"value": "",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Ferrari",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "rojo",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE ITEM",
+			"request": {
+				"url": "http://localhost/apiRestLumen/public/items/4",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
